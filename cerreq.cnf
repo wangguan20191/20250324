@@ -1,0 +1,27 @@
+[ req ]
+default_bits       = 2048          # 密钥大小，推荐 2048 或 4096
+default_md         = sha256        # 哈希算法
+prompt             = no            # 设置为 no，以便自动读取下方 DN 配置
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext       # 声明要包含扩展信息 (SAN)
+
+# 证书申请者的身份信息 (Distinguished Name, DN)
+[ req_distinguished_name ]
+countryName            = CN         # 国家代码 (2位字母)
+stateOrProvinceName    = Beijing    # 省份
+localityName           = Beijing    # 城市
+organizationName       = My Company # 公司名
+organizationalUnitName = IT Dept    # 部门名
+commonName             = redsheep.online # 主要域名
+
+# 扩展信息，这里专门定义 SAN
+[ req_ext ]
+subjectAltName = @alt_names
+
+# 在此处列出所有需要保护的域名和IP
+[ alt_names ]
+DNS.1 = redsheep.online
+DNS.2 = www.redsheep.online
+# 如果需要，可以添加更多域名，或直接添加IP地址
+# DNS.4 = api.example.com
+# IP.1 = 192.168.1.10

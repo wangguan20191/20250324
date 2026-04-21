@@ -1,0 +1,9 @@
+# 1. 进入私钥所在目录
+# 2. 禁用权限继承，并移除所有现有权限条目
+# 3. 仅授予当前用户读取权限（R 表示读取）
+
+
+cd /d "C:\terraform_1.14.8_windows_386"
+icacls nginx-key-pair.pem /inheritance:r
+icacls nginx-key-pair.pem /grant:r "%USERNAME%:R"
+

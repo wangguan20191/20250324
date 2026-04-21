@@ -1,0 +1,12 @@
+https://www.simonpainter.com/finding-my-ip/#a-quick-bash-function
+
+
+dig TXT o-o.myaddr.l.google.com @ns1.google.com +short
+dig @1.1.1.1 ch txt whoami.cloudflare +short
+dig +short myip.opendns.com @resolver1.opendns.com
+dig whoami.akamai.net. @ns1-1.akamaitech.net. +short
+
+
+
+
+openssl req -new -newkey rsa:2048 -nodes -keyout redsheep.key -out redsheep.csr -config redsheep.cnf
